@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Car Form</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="carform" (ngSubmit)="onSubmit()">
+    <ion-item>
+      <ion-label position="floating">Manufacture <ion-text color="danger">*</ion-text></ion-label>
+      <ion-input required formControlName="manufacturer" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Name <ion-text color="danger">*</ion-text></ion-label>
+      <ion-input required formControlName="name" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Type</ion-label>
+      <ion-select formControlName="type" placeholder="Select Type">
+        <ion-select-option value="sedan">Sedan</ion-select-option>
+        <ion-select-option value="suv">SUV</ion-select-option>
+          <ion-select-option value="small car">Small Car</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Color <ion-text color="danger">*</ion-text></ion-label>
+      <ion-input required formControlName="color" type="text"></ion-input>
+    </ion-item>
+    <ion-button expand="block" color="primary" type="submit" [disabled]="carform.invalid">
+      Save
+    </ion-button>
+  </form>
+</ion-content>

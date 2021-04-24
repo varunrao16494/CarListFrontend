@@ -1,0 +1,45 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title color="primary">Swasthya Sindhu</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <section id="headsection">
+    <ion-text color="primary">
+      <h1>Sign-Up</h1>
+    </ion-text>
+  </section>
+<ion-card>
+  <ion-card-header>
+    <ion-card-subtitle>Sign-Up Form</ion-card-subtitle>
+    <ion-card-title>Please enter following details</ion-card-title>
+  </ion-card-header>
+  <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+    <ion-item>
+      <ion-label position="floating">Mobile <ion-text color="danger">*</ion-text></ion-label>
+      <ion-input required formControlName="mobile" type="number"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Password <ion-text color="danger">*</ion-text></ion-label>
+      <ion-input required formControlName="password" type="password"></ion-input>
+    </ion-item>
+    <ion-button expand='block' color="primary" type="submit" [disabled]="signupForm.invalid">
+      Sign-Up
+    </ion-button>
+    <ion-text class="ion-text-center" color="primary">
+      <p>Or Login if you have an account!</p>
+    </ion-text>
+    <ion-button [routerLink]="['/login']" routerLinkActive="router-link-active"  expand="block" fill="solid">
+      Login
+    </ion-button>
+  </form>
+</ion-card>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-text class="ion-text-center" color="primary">
+      <p>© Nishana Health Advisory</p>
+    </ion-text>
+  </ion-toolbar>
+</ion-footer>
